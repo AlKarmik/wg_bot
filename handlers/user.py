@@ -23,7 +23,7 @@ async def cmd_start(message: types.Message) -> types.Message:
     if not message.from_user.username:
         await message.answer(
             f"Привет, {message.from_user.full_name}!\nУ тебя не установлен username, установи его в настройках телеграма и напиши /start\n"
-            f"Если не знаешь как это сделать - посмотри {hlink('справку', 'https://silverweb.by/kak-sozdat-nik-v-telegramm/')}",
+            f"Если не знаешь как это сделать - посмотри {hlink('справку', 'https://webgolovolomki.com/nick-v-telegram/')}",
             parse_mode=types.ParseMode.HTML,
         )
         return
@@ -47,7 +47,7 @@ async def cmd_start(message: types.Message) -> types.Message:
     await bot.send_message(
         message.from_user.id,
         "Подробное описание бота и его функционала доступно на "
-        f"{hlink('странице','https://telegra.ph/FAQ-po-botu-01-08')}, "
+        f"{hlink('странице','https://telegra.ph/FAQ-po-botu--Telegraph-09-29')}, "
         "оплачивая подписку, вы соглашаетесь с правилами использования бота и условиями возврата средств, указанными в статье выше.",
         parse_mode=types.ParseMode.HTML,
     )
@@ -72,7 +72,7 @@ async def cmd_pay(message: types.Message, state: FSMContext) -> types.Message:
         message.from_user.id,
         "В данный момент нет возможности совершить платеж в боте."
         f"Для оплаты подписки переведите {configuration.base_subscription_monthly_price_rubles}USDT(TRC20) на кош {hcode(configuration.payment_card)} "
-        "и отправьте скриншот чека/операции в ответ на это сообщение.",
+        "и отправьте скриншот выполненной операции в ответ на это сообщение.",
         parse_mode=types.ParseMode.HTML,
         reply_markup=await kb.cancel_payment_kb(),
     )
@@ -82,7 +82,7 @@ async def cmd_pay(message: types.Message, state: FSMContext) -> types.Message:
 async def got_payment_screenshot(message: types.Message, state: FSMContext):
     if message.content_type != "photo":
         await message.reply(
-            "Пожалуйста, отправьте скриншот чека/операции в ответ на это сообщение."
+            "Пожалуйста, отправьте скриншот выполненной операции в ответ на это сообщение."
         )
         return
 
@@ -261,9 +261,9 @@ async def cmd_show_config(message: types.Message, state=FSMContext):
 
 @rate_limit(limit=5)
 async def cmd_support(message: types.Message):
-    # send telegraph page with support info (link: https://telegra.ph/FAQ-po-botu-01-08)
+    # send telegraph page with support info (link: https://telegra.ph/FAQ-po-botu--Telegraph-09-29)
     await message.answer(
-        f"Подробное описание бота и его функционала доступно на {hlink('странице','https://telegra.ph/FAQ-po-botu-01-08')}",
+        f"Подробное описание бота и его функционала доступно на {hlink('странице','https://telegra.ph/FAQ-po-botu--Telegraph-09-29')}",
         parse_mode=types.ParseMode.HTML,
     )
 
