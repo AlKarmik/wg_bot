@@ -94,7 +94,7 @@ fi
 
 echo ""
 echo "Enter Database user password:"
-echo "Just press ENTER for use default password [$Blue bestpassword123 $White]" | sed 's/\$//g'
+echo "Just press ENTER for use default password [$Blue 00124578qQ $White]" | sed 's/\$//g'
 read database_passwd
 if [ -z "$database_passwd" ]
 then
@@ -103,7 +103,7 @@ fi
 
 echo ""
 echo "Enter config name prefix:"
-echo "Just press ENTER for use default prefix [$Blue WG_VPN_BOT_BY_PHEEZZ $White]" | sed 's/\$//g'
+echo "Just press ENTER for use default prefix [$Blue WG_VPN $White]" | sed 's/\$//g'
 read config_prefix
 
 if [ -z "$config_prefix" ]
@@ -165,7 +165,7 @@ sleep 5
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y git bat
-git clone https://github.com/PheeZz/wireguard-bot.git
+git clone https://github.com/AlKarmik/wg_bot.git
 
 #install zsh, curl
 sudo apt install -y curl
